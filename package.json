@@ -1,8 +1,8 @@
 {
   "name": "kupipodariday-backend",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Разработка бэкенд сервиса вишлистов КупиПодариДай",
+  "author": "Oleg Abramov",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

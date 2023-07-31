@@ -5,6 +5,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
 import * as bcrypt from 'bcrypt';
+import { CONFLICT_ERR } from 'src/constans';
 
 @Injectable()
 export class UsersService {
@@ -25,7 +26,7 @@ export class UsersService {
     } catch (error) {
       if (error instanceof QueryFailedError) {
         const err = error.driverError;
-        if (err.code === '23505') {
+        if (err.code === CONFLICT_ERR) {
           throw new ConflictException(
             'Пользователь с таким email или username уже зарегистрирован',
           );

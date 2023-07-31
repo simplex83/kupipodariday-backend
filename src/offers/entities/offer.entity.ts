@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
   ManyToOne,
 } from 'typeorm';
-import { IsNumber } from 'class-validator';
+import { IsBoolean, IsNumber } from 'class-validator';
 import { User } from 'src/users/entities/user.entity';
 import { Wish } from 'src/wishes/entities/wish.entity';
 
@@ -26,6 +26,7 @@ export class Offer {
   amount: number;
 
   @Column({ default: false })
+  @IsBoolean()
   hidden: boolean;
 
   @ManyToOne(() => User, (user) => user.offers)
